@@ -93,3 +93,24 @@ console.log(agesSum)
 
 const agesSumAvg = agesSum / ages.length
 console.log(agesSumAvg)
+
+
+//SNACK 5
+async function fetchJson(url) {
+    const response = await fetch(url)
+    const obj = await response.json()
+    return obj
+}
+
+async function getBooks(ids) {
+    const promises = ids.map(id => {
+        return fetchJson(`https://boolean-spec-frontend.vercel.app/freetestapi/books/${id}`)
+    })
+    const books = await Promise.all(promises)
+    return books
+}
+
+const idsTest = [2, 13, 7, 21, 19]
+getBooks(idsTest)
+    .then(data => console.log(data))
+    .catch(err => console.error(err))
