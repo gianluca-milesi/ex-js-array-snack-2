@@ -71,3 +71,14 @@ console.log(fullPricedBook)
 
 
 //SNACK 3
+const authors = books.map(b => b.author)
+
+const areAuthorsAdults = authors.every(a => a.age >= 18)
+console.log(areAuthorsAdults)
+
+if (!areAuthorsAdults) {
+    authors.sort((a, b) => a.age - b.age)
+} else {
+    authors.sort((a, b) => b.age - a.age)
+}
+console.log(authors)
