@@ -114,3 +114,16 @@ const idsTest = [2, 13, 7, 21, 19]
 getBooks(idsTest)
     .then(data => console.log(data))
     .catch(err => console.error(err))
+
+
+//SNACK 6
+const areThereAvailableBooks = books.some(b => b.available === true)
+console.log(areThereAvailableBooks)
+
+const booksByPrice = books.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
+
+booksByPrice.sort((a, b) => (b.available === true) - (a.available === true)) //1 - 0
+console.log(booksByPrice)
+
+
+//SNACK 7
