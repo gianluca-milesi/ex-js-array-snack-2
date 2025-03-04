@@ -49,9 +49,25 @@ const books = [
 //Crea una funzione che somma due numeri.
 const longBooks = books.filter(b => b.pages > 300)
 console.log(longBooks)
+
 const longBooksTitles = longBooks.map(b => b.title)
 console.log(longBooksTitles)
+
 longBooksTitles.forEach(title => console.log(title))
 
 
 //SNACK 2
+const availableBooks = books.filter(b => b.available === true)
+console.log(availableBooks)
+
+const discountedBooks = availableBooks.map(b => ({
+    ...b,
+    price: (parseFloat(b.price) * 0.8).toFixed(2) + "€"
+}))
+console.log(discountedBooks)
+
+const fullPricedBook = discountedBooks.find(b => parseFloat(b.price) % 1 === 0)
+console.log(fullPricedBook)
+
+
+//SNACK 3
