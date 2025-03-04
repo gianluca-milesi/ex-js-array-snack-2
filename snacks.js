@@ -127,3 +127,15 @@ console.log(booksByPrice)
 
 
 //SNACK 7
+const tagCounts = books.reduce((acc, b) => {
+    b.tags.forEach(tag => {
+        if (acc[tag]) {
+            acc[tag] += 1
+        } else {
+            acc[tag] = 1
+        }
+    })
+    return acc
+}, [])
+
+console.log(tagCounts)
